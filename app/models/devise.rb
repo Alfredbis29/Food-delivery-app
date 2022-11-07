@@ -1,2 +1,0 @@
-class Devise < ApplicationRecord
-end
