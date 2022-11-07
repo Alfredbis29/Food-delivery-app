@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'homes/index'
-  root 'homes#index'
+  # get 'dashboards/index'
+  root 'dashboards#index'
 
   devise_for :users
   resources :foods
