@@ -13,7 +13,7 @@ class DashboardsController < ApplicationController
 if current_user.admin == true
   action = params[:action]
 else
-  redirect_to root_path, alert: "You are not authorized to perform this action."
+  redirect_to foods_path, alert: "You are not authorized to perform this action."
  end
  end
 end
