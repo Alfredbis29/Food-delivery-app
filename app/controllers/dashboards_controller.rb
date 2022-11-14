@@ -5,9 +5,12 @@ class DashboardsController < ApplicationController
     # authorize user
   end
 
-  private 
+  private
 
   def set_user_autorization
-  
-  end
-end
+if current_user.admin == true
+  action = params[:action]
+else
+  #redirect_to foods_path, alert: "You are not authorized to perform this action."
+ end
+ end
