@@ -80,3 +80,5 @@ end
 
 gem "devise", "~> 4.8"
 gem "pundit"
+
+gem "cssbundling-rails", "~> 1.1"
