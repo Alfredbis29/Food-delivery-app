@@ -10,7 +10,7 @@ def create
   if food.save
     redirect_to foods_path, notice: "Food create successfully"
   else
-    @food.errors, alert: "Food not created"
+    flash["alert"] = "Food not created"
 end
 end
 
