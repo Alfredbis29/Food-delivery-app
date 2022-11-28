@@ -1,19 +1,9 @@
-<form>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">food name</label>
-  <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="food_name">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Price</label>
-  <input type="food_price" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Food Image</label>
-  <input type="food_price" class="form-control" id="exampleFormControlInput1" placeholder="Image_url">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
- <button type="submit" class="btn btn-primary">Order</button>
-</form>
+<%= form_for :person do |f| %>
+  Food name: <%= f.text_field :food_name %><br />
+  Price : <%= f.text_field :price %><br />
+  Description : <%= f.text_area :description %><br />
+  Image : <%= f.fields_for :exhibition_images do |f| %>
+    <%= f.file_field :image, help: "Ensure images are minimum 400x400px"  %><br />
+  Admin?    : <%= f.check_box :admin %><br />
+  <%= f.submit %>
+<% end %>
