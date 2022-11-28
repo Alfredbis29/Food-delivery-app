@@ -1,9 +1,1 @@
-<%= form_for :person do |f| %>
-  Food name: <%= f.text_field :food_name %><br />
-  Price : <%= f.text_field :price %><br />
-  Description : <%= f.text_area :description %><br />
-  Image : <%= f.fields_for :exhibition_images do |f| %>
-    <%= f.file_field :image, help: "Ensure images are minimum 400x400px"  %><br />
-  Admin?    : <%= f.check_box :admin %><br />
-  <%= f.submit %>
-<% end %>
+<%= render "foods/form"%>
