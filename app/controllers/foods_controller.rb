@@ -10,7 +10,7 @@ class FoodsController < ApplicationController
   end
 def create
   @food = Food.create(food_params)
-  if food.save
+  if @food.save
     redirect_to foods_path, notice: "Food create successfully"
   else
     flash["alert"] = "Food not created"
