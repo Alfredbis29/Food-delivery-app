@@ -16,6 +16,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    @user = current_user
     if @food.save
       redirect_to @food, notice: 'Food was successfully created.'
     else
