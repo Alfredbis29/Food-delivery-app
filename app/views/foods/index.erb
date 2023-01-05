@@ -3,5 +3,7 @@
 <div class="foods">
   <% @foods.each do |food| %>
     <h3 class="name"><%= food.name %></h3>
+    <li>
+      <%= link_to food.name,food_path(food) %>
   <%end%>
 </div>
