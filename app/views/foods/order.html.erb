@@ -1,0 +1,7 @@
+<%= form_with model: @order, url: orders_path, method: :post do |form| %>
+  <% @items.each do |item| %>
+    <%= check_box_tag "order[item_ids][]", item.id %>
+    <%= label_tag "order[item_ids][]", item.name %>
+  <% end %>
+  <%= submit_tag "Make your order" %>
+<% end %>
