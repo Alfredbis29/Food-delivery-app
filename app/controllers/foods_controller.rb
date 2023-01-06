@@ -24,18 +24,6 @@ class FoodsController < ApplicationController
     end
 end
 
-def create
-  @order = Order.new(order_params)
-  @order.user = current_user
-  @order.status = "pending"
-
-  if @order.save
-    redirect_to @order, notice: "Order was successfully placed."
-  else
-    render :new
-  end
-end
-
 private
 
 def order_params
