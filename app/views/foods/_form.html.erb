@@ -1,5 +1,5 @@
 <%= form_with(model: @food) do |form| %>
- 
+
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -11,18 +11,14 @@
   </div>
 
    <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
-  </div>
+   <%= form.label :image, style: "display: block" %>
+   <%= form.file_field :image %>
+  </div><br/>
 
     <div>
       <%= form.label :price, style: "display: block" %>
       <%= form.text_field :price %>
-    </div>
-
-
-
-
+    </div><br/>
 
   <div>
     <%= form.submit %>
