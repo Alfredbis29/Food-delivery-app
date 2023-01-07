@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+   @order = Order.all
+  end
+
   def new
     @order = Order.new
     @foods = Food.all
