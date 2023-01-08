@@ -1,7 +1,9 @@
 <h1>Order Food</h1>
 
-<%= form_tag '/orders/create' do %>
-  <label for="item">Select a food item:</label><br>
-  <%= select_tag 'item', options_from_collection_for_select(@food_items, :id, :name) %><br>
-  <%= submit_tag 'Make your Order' %>
+<%= form_with model: @order, url: orders_path, method: :post do |form| %>
+  <% @foods.each do |food| %>
+    <%= check_box_tag "order[food_ids][]", food.id %>
+    <%= label_tag "order[food_ids][]", food.name %>
+  <% end %>
+  <%= submit_tag "Place order" %>
 <% end %>
