@@ -10,7 +10,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.food = Food.find(params[:food_id])
+    @order.user = current_user
+    @order.status = "pending"
 
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
@@ -26,6 +27,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:status, :total)
+    params.require(:order).permit(:delivery_address, item_ids: [])
   end
 end
