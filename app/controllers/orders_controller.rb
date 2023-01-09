@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = current_user.orders.new(order_params)
     @order.user = current_user
     @order.status = "pending"
 
@@ -22,6 +22,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order = Order.first
+    @food = order.food
+
   end
 
   private

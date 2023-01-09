@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
+  has_many :foods
   belongs_to :user
-  belongs_to :food
 end

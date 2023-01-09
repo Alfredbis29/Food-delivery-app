@@ -1,6 +1,9 @@
 FactoryBot.define do
-  factory :order do
+  factory :food do
+    name { "MyString" }
+    descritpion { "MyText" }
+    image { "MyString" }
+    price { "MyString" }
     user { nil }
-    food { nil }
   end
 end
