@@ -1,9 +1,18 @@
+
 <h1>Order Food</h1>
 
-<%= form_with model: @order, url: orders_path, method: :post do |form| %>
-  <% @foods.each do |food| %>
-    <%= check_box_tag "order[food_ids][]", food.id %>
-    <%= label_tag "order[food_ids][]", food.name %>
-  <% end %>
-  <%= submit_tag "Place order" %>
+<%= form_with(model: @food, local: true) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :image %>
+  <%= form.text_field :image %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+
+  <%= form.submit %>
 <% end %>
