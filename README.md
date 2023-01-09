@@ -7,14 +7,9 @@ The app typically has a database that stores information about food items, users
   - User: This model represents the super admin and the normal user, such as a customer or a restaurant owner. It has attributes such as name, email, and password.
   - Order: This model represents an order placed by a user. It  has attributes such as user_id, total_price,quatity, and status.
   
-### User confirmation Mailer
-![img](app/assets/images/screenshot.png)
-
-### Message rendered from the backend 
-![img](app/assets/images/screenshot2.png)
 
 ### Deployment
- N/A `Kinldy i can't config my google SMTP because i using it to some of my projects that's why i did;\'nt deployed the app on heroku as well`
+ N/A `Pending`
 ## Built With
 
 - Rails
@@ -36,7 +31,7 @@ Here are the steps to follow in order to get this project on your local computer
 
 ### Setup
 
-clone this repo by typing `git clone https://github.com/vic778/Jumia-API`
+clone this repo by typing `git clone https://github.com/Alfredbis29/Food-delivery-app.git`
 
 ### Install
 
@@ -49,9 +44,6 @@ start the local server by running `rails s`
 ### Testing
 
 run the tests by typing `rails rswag`
-
-![img](app/assets/images/rswag.png)
-![img](app/assets/images/rspec.png)
 
 
 ### Documentation
