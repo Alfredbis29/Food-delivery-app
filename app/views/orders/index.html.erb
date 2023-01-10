@@ -2,17 +2,27 @@
 <h1>Order Food</h1>
 
 <%= form_with(model: @food, local: true) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+ <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+   <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
 
-  <%= form.label :image %>
-  <%= form.text_field :image %>
+   <div>
+   <%= form.label :image, style: "display: block" %>
+   <%= form.file_field :image %>
+  </div><br/>
 
-  <%= form.label :price %>
-  <%= form.number_field :price %>
+    <div>
+      <%= form.label :price, style: "display: block" %>
+      <%= form.text_field :price %>
+    </div><br/>
 
-  <%= form.submit %>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
