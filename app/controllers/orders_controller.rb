@@ -1,35 +1,23 @@
 class OrdersController < ApplicationController
-  def index
-   @order = Order.all
-  end
-
   def new
     @order = Order.new
-    @foods = Food.all
   end
 
   def create
     @order = Order.new(order_params)
-    @order.user = current_user
-    @order.status = "pending"
-
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
+      params[:menu_items].each do |menu_item_id, quantity|
+        OrderItem.create(order: @order, menu_item_id: menu_item_id, quantity: quantity)
+      end
+      redirect_to @order
     else
       render :new
     end
   end
 
-  def show
-    @order = Order.find(params[:id])
-    @order = Order.first
-    @food = order.food
-
-  end
-
   private
 
   def order_params
-    params.require(:order).permit(:delivery_address, item_ids: [])
+    params.require(:order).permit(:customer_name, :customer_email, :customer_phone, menu_items: {})
   end
 end
