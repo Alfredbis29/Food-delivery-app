@@ -12,7 +12,6 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-    
   end
 
   def create
@@ -24,6 +23,13 @@ class FoodsController < ApplicationController
       render :new
     end
 end
+
+private
+
+def order_params
+  params.require(:order).permit(:delivery_address, item_ids: [])
+end
+
 
   private
 
