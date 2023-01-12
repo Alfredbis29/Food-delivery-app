@@ -1,0 +1,20 @@
+<%= form_with model: @order, local: true do |form| %>
+  <%= form.label :customer_name %>
+  <%= form.text_field :customer_name %>
+
+  <%= form.label :customer_email %>
+  <%= form.email_field :customer_email %>
+
+  <%= form.label :customer_phone %>
+  <%= form.tel_field :customer_phone %>
+
+  <%= form.label :menu_items %>
+  <% MenuItem.all.each do |menu_item| %>
+    <div>
+      <%= menu_item.name %>
+      <%= form.number_field "menu_items[#{menu_item.id}]", min: 0 %>
+    </div>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>
