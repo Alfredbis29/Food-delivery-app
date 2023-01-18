@@ -10,6 +10,10 @@ class OrdersController < ApplicationController
     render json: @order
   end
 
+  def new
+    @order = Order.new
+  end
+
   def create
     @order = Order.new(order_params)
     if @order.save
