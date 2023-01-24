@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_order, only: [:show, :update, :destroy]
 
   def index
@@ -15,7 +16,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    food = Food.find(params[:food_id])
+    @order = current_user.orders.build(order_params)
     if @order.save
       render json: @order, status: :created
     else
