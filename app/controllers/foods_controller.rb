@@ -12,18 +12,18 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
-    
   end
 
   def create
     @food = Food.new(food_params)
     @food = current_user.foods.new(food_params)
     if @food.save
-      redirect_to @food, notice: 'Food was successfully created.'
+      redirect_to foods_path, notice: 'Food was successfully created.'
     else
       render :new
     end
 end
+
 
   private
 
