@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # get 'dashboards/index'
-  root 'dashboards#index'
-  resources :orders
+  root 'foods#index'
+  # resources :orders
 
   devise_for :users
-  resources :foods, only: %i[index show new create destroy]
+  resources :foods do
+    resources :orders
+  end
 
 end
