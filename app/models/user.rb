@@ -7,5 +7,6 @@ class User < ApplicationRecord
          has_many :foods, through: :orders
 
   has_many :foods
+  has_many :orders, through: :foods
   validates :username, presence: true, uniqueness: true
 end
