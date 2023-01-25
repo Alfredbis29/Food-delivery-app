@@ -17,30 +17,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
-      render json: @order, status: :created
+      redirect_to confirmation_path
     else
-      render json: @order.errors, status: :unprocessable_entity
+      render :new
     end
-  end
-
-  def update
-    if @order.update(order_params)
-      render json: @order
-    else
-      render json: @order.errors, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @order.destroy
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    def order_params
-      params.require(:order).permit(:quantity, :ref_code, :total_price, :status, :user_id, :food_id)
-    end
+  def order_params
+    params.require(:order).permit(:quantity)
+  end
 end
