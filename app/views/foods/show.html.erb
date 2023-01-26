@@ -3,3 +3,5 @@
 <p>Name: <%= @food.name %></p>
 <p>Description: <%= @food.description %></p>
 <p>Price: <%= @food.price %></p>
+
+  <%= link_to "Add to cart", new_food_order_path(food_id: @food), class: "btn btn-blue-500" %>
