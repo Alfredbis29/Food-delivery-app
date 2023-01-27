@@ -18,8 +18,10 @@ class OrdersController < ApplicationController
   def create
     food = Food.find(params[:food_id])
     @order = current_user.orders.build(order_params)
+    @order.total_price *@order.quanitty if @order.quantity > 2
+
     if @order.save
-      redirect_to confirmation_path
+      redirect_to foods_path, notice: "Your Food was successfully ordered"
     else
       render :new
     end
