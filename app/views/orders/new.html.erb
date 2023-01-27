@@ -1,7 +1,5 @@
-<%= form_with model: @order do |form| %>
-  <%= form.number_field :quantity %>
-  <%= form.submit %>
+<%= form_for @order do |f| %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.submit "Place Order" %>
 <% end %>
-
-<%= render "orders/form"%>
-
