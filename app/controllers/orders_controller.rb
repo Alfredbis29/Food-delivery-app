@@ -28,7 +28,10 @@ class OrdersController < ApplicationController
   end
 
   private
-
+  
+ def set_order
+  @order = Order.find(params[:id])
+ end
   def order_params
     params.require(:order).permit(:quantity, :food_id)
   end
