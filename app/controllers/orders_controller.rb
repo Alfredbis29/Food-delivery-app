@@ -23,12 +23,12 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to foods_path, notice: "Your Food was successfully ordered"
     else
-      render :new
+      
     end
   end
 
   private
-  
+
  def set_order
   @order = Order.find(params[:id])
  end
