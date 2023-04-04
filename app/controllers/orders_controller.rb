@@ -18,31 +18,21 @@ class OrdersController < ApplicationController
   def create
     food = Food.find(params[:food_id])
     @order = current_user.orders.build(order_params)
+    @order.total_price *@order.quanitty if @order.quantity > 2
+
     if @order.save
-      render json: @order, status: :created
+      redirect_to foods_path, notice: "Your Food was successfully ordered"
     else
-      render json: @order.errors, status: :unprocessable_entity
+      render :new
     end
-  end
-
-  def update
-    if @order.update(order_params)
-      render json: @order
-    else
-      render json: @order.errors, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @order.destroy
   end
 
   private
-    def set_order
-      @order = Order.find(params[:id])
-    end
 
-    def order_params
-      params.require(:order).permit(:quantity, :ref_code, :total_price, :status, :user_id, :food_id)
-    end
+ def set_order
+  @order = Order.find(params[:id])
+ end
+  def order_params
+    params.require(:order).permit(:quantity, :food_id)
+  end
 end
